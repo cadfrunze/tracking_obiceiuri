@@ -8,3 +8,4 @@ param1: dict = {
 }
 response_post = requests.post(url='https://pixe.la/v1/users', params=param1)
 print(response_post)
+print('dsdssdsd')
