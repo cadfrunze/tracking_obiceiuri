@@ -31,10 +31,20 @@ update_graph_param: dict = {
     # 'optionalData': 'testing'
 }
 
+# update_graph = requests.post(
+#     url=f'{pixela_endpoint}/{param1["username"]}/graphs/{param_graph_endpoint["id"]}',
+#     headers=headers_key,
+#     json=update_graph_param
+# )
+# print(update_graph.text)
 
-update_graph = requests.post(
-    url=f'{pixela_endpoint}/{param1["username"]}/graphs/{param_graph_endpoint["id"]}',
-    headers=headers_key,
-    json=update_graph_param
-)
-print(update_graph.text)
+azi: str = datetime.now().strftime('20%y%m%d')
+print(azi)
+put_endpoint: str = f'{pixela_endpoint}/{param1["username"]}/graphs/{param_graph_endpoint["id"]}/{azi}'
+# /v1/users/<username>/graphs/<graphID>/<yyyyMMdd>
+data_base_put: dict = {
+    'quantity': '2'
+}
+
+end_point_put = requests.put(url=put_endpoint, headers=headers_key, json=data_base_put)
+print(end_point_put.text)
